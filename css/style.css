@@ -1,0 +1,21 @@
+*{margin: 0;padding: 0;border: none;}
+html,
+body{height: 100%;background: lightblue;overflow: hidden;/*去除滚动条-——剪切使多出屏幕的部分*/}
+span{display: block;width: 10px;height: 10px;margin: 20px auto 15px ;/*左右居中，上下30 40*/border-radius:50%;/*边框为圆形*/background: #fff;}
+nav{position: relative;display: flex;/*均匀分布*/width: 75.125vw;/*vw：相对单位，1vw等于可视窗口宽度的1%*/
+    /*height: 50px;*//*不设置，用文字大小撑起*/
+    margin: 0 auto 20px;/*因为span已经设置了和nav之间的40px的外边距，所以这里上边距0，下边距和图片的设为45px*/
+    justify-content: space-between;/*两个元素结合使用可以让元素在容器中左右均匀分布。最长用于移动端的开发*/
+}
+/*::before和::after匹配一个虚拟元素，主要被用于为当前元素增加装饰性内容的。他显示的内容是其自身的“content”属性，默认是内联元素。
+其实::after和::before被引入css中，最核心的目的，还是为了实现语义化。
+在我们实际开发时候经常有这样的经历，为了实现一些效果，在文档中创建了一些没有实际内容的节点，或者加入辅助样式的文本*/
+/*虚拟出nav的第一个元素，在a上面*/
+nav:before{position: absolute;top: 10px;width: 100%;height: 10px;background: #fff;display: block;content: '';}
+nav > a{position: relative;font-size: 10px;padding: 10px;border: 1px solid #006699;text-decoration: none;/*去除超链接的下划线*/color: #0000cc;/*文字颜色设为白色*/background: #fff;}
+/*图像区域*/
+div {position: relative;overflow: hidden;/*图片太大，溢出屏幕的部分隐藏,元素的内容会在元素框的边界处剪裁，并且超出剪裁区域的内容不可见*/
+    width: 75.125vw;/*vw：相对单位，1vw等于可视窗口宽度的1%*/height: 80vh;/*vh：相对单位，1vw等于可视窗口高度的1%*/
+    margin: 0 auto;background: #fff;box-shadow: 0 0 30px 0 rgba(8, 1, 3, .3); /*给盒子添加阴影*/}
+div > img{position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;width: 98%;height: 96%;/*使得上面溢出屏幕的部分98%的占据盒子*/}
+
